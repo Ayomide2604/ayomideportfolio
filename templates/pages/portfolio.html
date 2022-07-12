@@ -1,0 +1,43 @@
+{% load static %}
+<!-- ======= Portfolio Section ======= -->
+<section id="portfolio" class="portfolio section-bg">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Portfolio</h2>
+        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+          <ul id="portfolio-flters">
+            <li data-filter="*" class="filter-active">All</li>
+           
+          </ul>
+        </div>
+      </div>
+
+      <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+        
+        
+        {% for project in projects %}
+        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="portfolio-wrap">
+            <img src="{{project.photo_main.url}}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>{{project.name | title}}</h4>
+              <p>{{project.category.name | title}}</p>
+              <div class="portfolio-links">
+                <a href="{{project.photo_main.url}}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{project.name | title}}"><i class="bx bx-plus"></i></a>
+                <a href="pages/portfolio-details.html" data-gallery="portfolioGallery" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><a href="{{project.get_absolute_url}}"><i class="bx bx-link"></i></a></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+
+    </div>
+  </section><!-- End Portfolio Section -->
